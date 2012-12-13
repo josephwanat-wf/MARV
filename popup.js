@@ -4,10 +4,9 @@ function verifyInputsNotEmpty() {
 	return result
 }
 function handleSubmitClicked() {
-	console.log('sumbit clicked');
-	if ($('#date').val() != "") {
+	if ($('#newDate').val() != "") {
 		if ($('#fixVersion').val() != ""){
-			var date = $('#date').val()
+			var date = $('#newDate').val()
 			var fixVersion = $('#fixVersion').val();
 			var AD = $('#AD').is(':checked');
 			var ADMIN = $('#ADMIN').is(':checked');
