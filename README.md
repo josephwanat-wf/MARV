@@ -13,7 +13,7 @@ Modify All Release Versions<BR>
 1. Download the packaged file (.crx)<BR>
 2. Go to chrome://extensions/ and drag the file onto this window. Google will take care of the rest<BR>
 <BR>
-To Add Versions: <BR>
+<b>To Add Versions: </b><BR>
 1. Choose your projects (By default it goes to the following: AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG,  BOOKS, FUN, RR, but it has the option to also go to BUS and INF. These are not selected by default because I do not have access to those projects) To choose your projects press the show projects button. <BR>
 <BR>
 2. Select your date: This can be done by typing it in, using the up and down arrows, or using the drop down to use a calendar. If you type it in it should be in the format 01/13/12 (mm/dd/yyyy)<BR>
