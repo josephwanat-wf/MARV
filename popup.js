@@ -5,8 +5,6 @@ function verifyInputsNotEmpty() {
 }
 function handleSubmitClicked() {
 	console.log('sumbit clicked');
-
-	//if (verifyInputsNotEmpty()) {
 	if ($('#date').val() != "") {
 		if ($('#fixVersion').val() != ""){
 			var date = $('#date').val()
@@ -39,13 +37,12 @@ function handleSubmitClicked() {
 			var FUN = $('#FUN').is(':checked');
 			var INF = $('#INF').is(':checked');
 			var RR = $('#RR').is(':checked');
-
 			var description = "Maintenance Release";
-
 			var year = date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
 			var month = "";
+
 			if (newMonth == 01){
 				month = "JAN"
 			}
@@ -83,17 +80,13 @@ function handleSubmitClicked() {
 				month = "DEC"
 			}
 			if(!$('#maintenance').is(':checked')) description = $('#description').val();
-		
-			chrome.extension.getBackgroundPage().mgr.updateVariables(
-					month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, description);
+			chrome.extension.getBackgroundPage().mgr.updateVariables(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, description);
 		}
 		else alert("Please choose a version");
 	}
 	else alert("Please enter a date");
 }
 function handleSubmit2Clicked() {
-	console.log('sumbit clicked');
-
 	if (verifyInputsNotEmpty()) {
 		var fixVersion2 = $('#fixVersion2').val();
 		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2);
@@ -101,8 +94,6 @@ function handleSubmit2Clicked() {
 	}
 }
 function handleSubmit3Clicked() {
-	console.log('submit3 clicked');
-
 	if ($('#date3').val() != "") {
 		if ($('#fixVersion3').val() != ""){
 			var fixVersion3 = $('#fixVersion3').val();
@@ -135,7 +126,6 @@ function handleSubmit3Clicked() {
 			var FUN = $('#FUN').is(':checked');
 			var INF = $('#INF').is(':checked');
 			var RR = $('#RR').is(':checked');
-
 			var year = date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
@@ -193,7 +183,6 @@ function select(){
 	$('input[type="checkbox"]').attr('checked', true);
 	$('#maintenance').attr('checked', maitenanceS);
 }
-
 function maintenanceSelect(){
 	if($('#maintenance').is(':checked')) {
 		console.log("checked");
@@ -208,7 +197,6 @@ function maintenanceSelect(){
 		$('#dLabel').attr('class', 'shown');
 	}
 }
-
 function handleHideProjClicked(){
 	$('#tAD').attr('class', 'hidden');
 	$('#tADMIN').attr('class', 'hidden');
@@ -241,7 +229,6 @@ function handleHideProjClicked(){
 	$('#select').attr('class', 'hidden');
 	$('#deselect').attr('class', 'hidden');
 }
-
 function handleShowProjClicked(){
 	$('#tAD').attr('class', 'shown');
 	$('#tADMIN').attr('class', 'shown');
@@ -274,7 +261,6 @@ function handleShowProjClicked(){
 	$('#select').attr('class', 'shown');
 	$('#deselect').attr('class', 'shown');
 }
-
 $(document).ready(function() {
 	$('#submit').click(handleSubmitClicked);
 	$('#deselect').click(deselect);
