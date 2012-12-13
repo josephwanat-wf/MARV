@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deploy and Run</title>
+	<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
+	<style>
+		input.hidden {display:none;}
+		input.shown {display:inline;}
+		td.hidden {display:none;}
+		td.shown {display:table-cell;}
+		label.shown {display:inline;}
+		label.hidden {display:none;}
+	</style>
+	</head>
+	<body bgcolor = "#F2F2F2" style="width: 300px;margin: 10px;padding-top: 20px;">
+				<div class="controls">
+					<div class="control-group">
+						<label for="framework_branch">
+							<b>Projects</b>
+							<input type = "button" value = "Show Projects" id = "showProj"><input type = "button" value = "Hide Projects" id = "hideProj"><BR>
+							<input type = "button" value = "Deselect All" id="deselect" class = 'hidden'><input type = "button" class = 'hidden' value = "Select All" id="select">
+							<TABLE border = 0;>
+								<TR><TD width = 100 class= 'hidden' id = 'tAD'><input id= "AD" type="checkbox" name="AD" value="AD" checked = "yes">Ad-Hoc</TD>
+									<TD width =100 class= 'hidden' id = 'tADMIN' ><input id="ADMIN" type="checkbox" name="AD" value="ADMIN" checked = "yes">Admin</TD>
+								</TR>
+								<TR><TD class= 'hidden' id = 'tAR'><input id="AR" type="checkbox" name="AR" value="AR" checked = "yes" >Architecture</TD>
+									<TD width =100 class= 'hidden' id = 'tSKY'><input id="SKY" type="checkbox" name="SKY" value="SKY" checked = "yes" >BigSky</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tBOOKS'><input id="BOOKS" type="checkbox" name="BOOKS" value="BOOKS" checked = "yes" >Books</TD>
+									<TD width =100 class= 'hidden' id = 'tBUS'>	<input id="BUS" type="checkbox" name="BUS" value="BUS"  >Business</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tCERT'><input id="CERT" type="checkbox" name="CERT" value="CERT" checked = "yes" >Certifier</TD>
+									<TD width =100 class= 'hidden' id = 'tDI'>	<input id="DI" type="checkbox" name="DI" value="DI" checked = "yes" >Development</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tDR'><input id="DR" type="checkbox" name="DR" value="DR" checked = "yes" >Digital Review</TD>
+									<TD width =100 class= 'hidden' id = 'tDS'><input id="DS" type="checkbox" name="DS" value="DS" checked = "yes" >Doc Services</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tFAP'><input id="FAP" type="checkbox" name="FAP" value="FAP" checked = "yes" >Filing</TD>
+									<TD width =100 class= 'hidden' id = 'tFT'> <input id="FT" type="checkbox" name="FT" value="FT" checked = "yes" >Flex Team</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tFUI'><input id="FUI" type="checkbox" name="FUI" value="FUI" checked = "yes" >Flex UI</TD>
+									<TD width =100 class= 'hidden' id = 'tFUN'> <input id="FUN" type="checkbox" name="FUN" value="FUN" checked = "yes" >Funds</TD>
+								</TR>
+								<TR><TD width =150 class= 'hidden' id = 'tHC'> <input id="HC" type="checkbox" name="HC" value="HC" checked = "yes" >HTML Client</TD>
+									<TD width =100 class= 'hidden' id = 'tINF'> <input id="INF" type="checkbox" name="INF" value="INF"  >INF</TD>
+ 								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tIAPI'><input id="IAPI" type="checkbox" name="IAPI" value="IAPI" checked = "yes" >Integration</TD>
+									<TD width =100 class= 'hidden' id = 'tLOG'><input id="LOG" type="checkbox" name="LOG" value="LOG" checked = "yes" >Prod. Health</TD>
+								</TR>
+								<TR><TD width = 100 class= 'hidden' id = 'tPRES'><input id="PRES" type="checkbox" name="PRES" value="PRES" checked = "yes" >Presentations</TD>
+									<TD width =100 class= 'hidden' id = 'tRR'><input id="RR" type="checkbox" name="RR" value="RR" checked = "yes" >Rapid Response</TD>
+								</TR>
+								<TR><TD width =100 class= 'hidden' id = 'tSIXTEEN'><input id="SIXTEEN" type="checkbox" name="SIXTEEN" value="SIXTEEN" checked = "yes" >Section 16</TD>
+									<TD width = 100 class= 'hidden' id = 'tSSC'><input id="SSC" type="checkbox" name="SSC" value="SSC" checked = "yes" >Server Side</TD>
+									
+								</TR>
+								<TR><TD width =150 class= 'hidden' id = 'tSHEET'><input id="SHEET" type="checkbox" name="SHEET" value="SHEET" checked = "yes" >Spreadsheets</TD>
+									<TD width = 100 class= 'hidden' id = 'tTRA'><input id="TRA" type="checkbox" name="TRA" value="TRA" checked = "yes" >Translation</TD>
+								</TR>
+								<TR><TD width =100 class= 'hidden' id = 'tXBRLSEC'><input id="XBRLSEC" type="checkbox" name="XBRLSEC" value="XBRLSEC" checked = "yes" >XBRL SEC</TD>
+									<TD width = 100 class= 'hidden' id = 'tXL'><input id="XL" type="checkbox" name="XL" value="XL" checked = "yes" >XBRL Life</TD>
+								</TR>
+								<TR><TD width =100 class= 'hidden' id = 'tXS'><input id="XS" type="checkbox" name="XS" value="XS" checked = "yes" >XBLR Services</TD>
+									<TD width = 160 class= 'hidden' id = 'tXW'><input id="XW" type="checkbox" name="XW" value="XW" checked = "yes" >XBRL Warehouse</TD>
+									<TD width =100></TD>
+								</TR>
+							</Table>
+						</label>
+					</div>
+				</div>
+
+	<B><U>Add Jira Version</U></B>
+	<br>
+	<BR>
+	<div class="container-fluid">
+		<div class="span12">
+			<form>
+				<b>Date</b>
+				<input id="newDate" type="date" value="2012-12-01;"><BR>
+				<label><b>Maintance Release?</b>
+				<input type = "checkbox" id = "maintenance" name = "maintenance" checked = "yes">
+				</label><BR>
+				<label  id = 'dLabel' class = 'hidden'><b>Description</b>
+					<input type = "text" id = "description" class = 'hidden' name = "description" disabled data-provide="typeahead" placeholder="Maintenance Release"></label>
+				
+				<div class="controls">
+					<div class="control-group">
+						<label>
+							<b>Fix Version</b>
+							<input type="text" id="fixVersion" class="span12" data-provide="typeahead" placeholder="eg 3.4.12">
+						</label>
+					</div>
+				</div>
+				<div class="controls">
+					<div class="control-group">
+						<input type="button" id="submit" class="span12 btn btn-primary" value="Submit Addition">
+					</div>
+				</div>
+				<div class="controls">
+					<div id="notification"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<BR>
+	<B><U>Jira Version Date Changer</U></B>
+	<br>
+	<BR>
+	<div class="container-fluid">
+		<div class="span12">
+			<form>
+				<div class="controls">
+					<div class="control-group">
+						<label>
+							<b>Fix Version</b>
+							<input type="text" id="fixVersion3" class="span12" data-provide="typeahead" placeholder="eg 3.4.12">
+						</label>
+					</div>
+				</div>
+				<div class="controls">
+					<div class="control-group">
+						<label>
+							<b>New Date</b>
+							<input id="date3" type="date" value="2012-12-01;"><BR>
+						</label>
+					</div>
+				</div>
+				<div class="controls">
+					<div class="control-group">
+						<input type="button" id="submit3" class="span12 btn btn-primary" value="Change Date">
+					</div>
+				</div>
+				<div class="controls">
+					<div id="notification"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--
+	<BR><BR>
+	<B><U>Release Jira Version</U></B>
+	<br>
+	<BR>
+	<div class="container-fluid">
+		<div class="span12">
+			<form>
+				<div class="controls">
+					<div class="control-group">
+						<label>
+							<b>Fix Version</b>
+							<input type="text" id="fixVersion2" class="span12" data-provide="typeahead" placeholder="eg 3.4.12">
+						</label>
+					</div>
+				</div>
+				<div class="controls">
+					<div class="control-group">
+						<input type="button" id="submit2" class="span12 btn btn-primary" value="Release">
+					</div>
+				</div>
+				<div class="controls">
+					<div id="notification"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+-->
+</body>
+</html>

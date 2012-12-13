@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "WebFilings QA Jira Version Changer",
+	"version": "2.1",
+	"description": "A Google Chrome browser extension that adds Jira Projects",
+	"background": {
+		"page": "background.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://jira.webfilings.com/*"	],
+			"run_at": "document_idle",
+			"js": ["jira_stuff.js", "jquery-1.8.2.min.js"]
+		}
+	],
+	"icons": {
+		"16": "images/icon_016.png",
+		"48": "images/icon_048.png",
+		"128": "images/icon_128.png"
+	},
+	"browser_action": {
+		"default_icon": "images/icon_032.png",
+		"default_title": "Create Projects",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"tabs",
+		"notifications",
+		"https://jira.webfilings.com/*",
+		"https://appengine.google.com/"
+		
+	],
+	"web_accessible_resources": [
+		"/images/icon_048.png"
+	]
+}
