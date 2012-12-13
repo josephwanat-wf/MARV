@@ -290,6 +290,7 @@ $(document).ready(function() {
 	$('#deselect').click(deselect);
 	$('#select').click(select);
 	$('#maintenance').click(maintenanceSelect);
+	$('#submit2').click(handleSubmit2Clicked);
 	$('#submit3').click(handleSubmit3Clicked);
 	$('#hideProj').click(handleHideProjClicked);
 	$('#showProj').click(handleShowProjClicked);
