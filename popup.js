@@ -1,6 +1,5 @@
 function verifyInputsNotEmpty() {
 	var result = true;
-	
 	return result
 }
 function handleSubmitClicked() {
@@ -41,7 +40,6 @@ function handleSubmitClicked() {
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
 			var month = "";
-
 			if (newMonth == 01){
 				month = "JAN"
 			}
@@ -86,11 +84,39 @@ function handleSubmitClicked() {
 	else alert("Please enter a date");
 }
 function handleSubmit2Clicked() {
-	if (verifyInputsNotEmpty()) {
+	if ($('#fixVersion2').val() != "") {
 		var fixVersion2 = $('#fixVersion2').val();
-		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2);
-		
+		var AD = $('#AD').is(':checked');
+		var ADMIN = $('#ADMIN').is(':checked');
+		var AR = $('#AR').is(':checked');
+		var SKY = $('#SKY').is(':checked');
+		var CERT = $('#CERT').is(':checked');
+		var DI = $('#DI').is(':checked');
+		var DR = $('#DR').is(':checked');
+		var DS = $('#DS').is(':checked');
+		var FAP = $('#FAP').is(':checked');
+		var FT = $('#FT').is(':checked');
+		var FUI = $('#FUI').is(':checked');
+		var IAPI = $('#IAPI').is(':checked');
+		var PRES = $('#PRES').is(':checked');
+		var SIXTEEN = $('#SIXTEEN').is(':checked');
+		var SSC = $('#SSC').is(':checked');
+		var SHEET = $('#SHEET').is(':checked');
+		var TRA = $('#TRA').is(':checked');
+		var XBRLSEC = $('#XBRLSEC').is(':checked');
+		var XL = $('#XL').is(':checked');
+		var XS = $('#XS').is(':checked');
+		var XW = $('#XW').is(':checked');
+		var HC = $('#HC').is(':checked');
+		var LOG = $('#LOG').is(':checked');
+		var BOOKS = $('#BOOKS').is(':checked');
+		var BUS = $('#BUS').is(':checked');
+		var FUN = $('#FUN').is(':checked');
+		var INF = $('#INF').is(':checked');
+		var RR = $('#RR').is(':checked');
+		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR);	
 	}
+	else alert("Please choose a version");
 }
 function handleSubmit3Clicked() {
 	if ($('#date3').val() != "") {
@@ -165,7 +191,6 @@ function handleSubmit3Clicked() {
 			else if (newMonth == 12){
 				month = "DEC"
 			}
-
 			chrome.extension.getBackgroundPage().mgr.updateVariables3(fixVersion3, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR);
 		}
 		else alert("Please choose a version");

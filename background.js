@@ -32,7 +32,6 @@ var VersionChanger = function () {
 		notification.show();
 	};	
 	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, description) {
-		console.log('updating Variables');
 		console.log(fixVersion);
 		this.month = month;
 		this.day = day;
@@ -44,9 +43,10 @@ var VersionChanger = function () {
 		self.nextProject();
 
 	};	
-	self.updateVariables2 = function(fixVersion){
+	self.updateVariables2 = function(fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR){
 		this.fixVersion = fixVersion;
 		self.purpose = 2;
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR);
 		self.nextProject();
 	};
 	self.updateVariables3 = function(fixVersion, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR){
@@ -57,7 +57,6 @@ var VersionChanger = function () {
 		self.nextProject();
 	};
 	//Used for testing
-	/*
 	self.nextProject = function(){
 		if (self.next_URL == 'none' && self.QAL == true){
 			self.next_URL='https://jira.webfilings.com/plugins/servlet/project-config/QAL/versions';
@@ -72,7 +71,7 @@ var VersionChanger = function () {
 			self.next_URL = 'none';
 		}
 	}
-	*/
+	/*
 	self.nextProject = function(){
 
 		if (self.current < self.length){
@@ -88,6 +87,7 @@ var VersionChanger = function () {
 			self.next_message_handler = 'none';
 		}
 	};
+	*/
 	self.query = function(){	
 		chrome.tabs.query({'url': self.next_URL}, this.navigateToJira);
 		if (this.purpose == 1) this.next_message_handler = 'writeEverything';
