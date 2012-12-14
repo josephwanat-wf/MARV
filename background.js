@@ -88,7 +88,6 @@ var VersionChanger = function () {
 			self.next_message_handler = 'none';
 		}
 	};
-	
 	self.query = function(){	
 		chrome.tabs.query({'url': self.next_URL}, this.navigateToJira);
 		if (this.purpose == 1) this.next_message_handler = 'writeEverything';

@@ -40,6 +40,7 @@ function handleSubmitClicked() {
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
 			var month = "";
+
 			if (newMonth == 01){
 				month = "JAN"
 			}
