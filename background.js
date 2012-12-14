@@ -3,7 +3,6 @@ var VersionChanger = function () {
 	this.month = null;
 	this.day = null;
 	this.year = null;
-	self.QAL = true;
 	this.fixVersion = null;
 	this.next_page_action = 'none';
 	this.next_message_handler = 'none';
@@ -58,6 +57,7 @@ var VersionChanger = function () {
 		self.nextProject();
 	};
 	//Used for testing
+	/*
 	self.nextProject = function(){
 		if (self.next_URL == 'none' && self.QAL == true){
 			self.next_URL='https://jira.webfilings.com/plugins/servlet/project-config/QAL/versions';
@@ -72,7 +72,7 @@ var VersionChanger = function () {
 			self.next_URL = 'none';
 		}
 	}
-	/*
+	*/
 	self.nextProject = function(){
 
 		if (self.current < self.length){
@@ -88,7 +88,7 @@ var VersionChanger = function () {
 			self.next_message_handler = 'none';
 		}
 	};
-	*/
+	
 	self.query = function(){	
 		chrome.tabs.query({'url': self.next_URL}, this.navigateToJira);
 		if (this.purpose == 1) this.next_message_handler = 'writeEverything';
