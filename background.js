@@ -3,6 +3,7 @@ var VersionChanger = function () {
 	this.month = null;
 	this.day = null;
 	this.year = null;
+	self.QAL = true;
 	this.fixVersion = null;
 	this.next_page_action = 'none';
 	this.next_message_handler = 'none';

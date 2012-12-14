@@ -30,13 +30,34 @@ var MessageHandler = function () {
 		setTimeout(self.butSeriouslyReleaseEverything, 500);
 	}
 	self.butSeriouslyReleaseEverything = function(){
-		//id should be something like "version-15963-row"
 		$('.project-config-version-name').each(function(){
-			if (this.text = ("Version " + self.fixVersion)) {
-				this.parent.find('[a."aui-list-item-link project-config-operations-release"]').trigger('click');
+			if (this.textContent == ("Version " + self.fixVersion)) {
+				var dataID = $(this).parent();
+				dataID = $(dataID).get([0]);
+				dataID = $(dataID).attr('id');
+				dataID = dataID.substring(0,dataID.length - 3);
+				dataID = dataID + "operations-trigger_drop";
+				var cell = this.nextSibling.nextSibling.nextSibling;
+				//var throbber = $(cell).find(".project-config-icon project-config-icon-manage");
+				var throbber = cell.firstChild.firstChild;
+				throbber.click();
+				var btnRelease = $(".aui-list-section.aui-first.aui-last");
+				for (var i = 0; i<btnRelease.length;i++){
+					var btnI = $(btnRelease).get([i]);
+					btnI = $(btnI).parent().parent();
+					if ($(btnI).attr('id') == dataID){
+						btnRelease = btnRelease.get([i]).firstChild.firstChild;
+						btnRelease.click();
+					}
+				}
+				setTimeout(self.clickSubmit, 500);
 			}
 		});
 		chrome.extension.sendMessage({});
+	}
+	self.clickSubmit = function(){
+		var sub = $(document).find("#project-config-version-release-form-submit");
+		sub.click();
 	}
 	self.changeEverything = function(response){
 		self.fixVersion = response.fixVersion;
@@ -44,7 +65,6 @@ var MessageHandler = function () {
 		setTimeout(self.butSeriouslyChangeEverything, 500);
 	}
 	self.butSeriouslyChangeEverything = function(){
-		console.log("seriouslyChanging");
 		$('.project-config-version-name').each(function(){
 			if (this.textContent == ("Version " + self.fixVersion)) {
 				$(this).find(".aui-restfultable-editable").click();
@@ -57,7 +77,6 @@ var MessageHandler = function () {
 		chrome.extension.sendMessage({});
 		
 	}
-	
 };
 
 var msg_handler = new MessageHandler();
