@@ -19,25 +19,9 @@ var MessageHandler = function () {
 	}
 	self.butSeriouslyWriteEverything = function(){
 		console.log('writing everything for realz');
-		self.writeVersion(self.fixVersion);
-		self.writeMaintenance();
-		self.writeDate(self.date);
-		self.pressAdd();
-	}
-	//Here I want to enter write out the version number etc to the textbox
-	self.writeVersion = function(fixVersion) {
-		console.log(fixVersion);
 		$('input[type="text"][name="name"][value=""]').val("Version " + fixVersion);
-	};
-	self.writeMaintenance = function() {
-		console.log("writing maintenance");
 		$('input[type="text"][name="description"]').val(self.description);
-	};
-	self.writeDate = function(date) {
-		console.log("writing Date");
-		$("#project-config-version-release-date-field").val(date);
-	};
-	self.pressAdd = function(){
+		$("#project-config-version-release-date-field").val(self.date);
 		$('input[class="aui-button"][value="Add"]').trigger('click');
 		chrome.extension.sendMessage({});
 	}
@@ -48,7 +32,7 @@ var MessageHandler = function () {
 	self.butSeriouslyReleaseEverything = function(){
 		//id should be something like "version-15963-row"
 		$('.project-config-version-name').each(function(){
-			if (this.text = ("Version " + fixVersion)) {
+			if (this.text = ("Version " + self.fixVersion)) {
 				this.parent.find('[a."aui-list-item-link project-config-operations-release"]').trigger('click');
 			}
 		});
