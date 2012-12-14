@@ -39,5 +39,5 @@ Modify All Release Versions<BR>
 <BR>
 2. Select your version in the bottom fix version box (the top two are not relevant) type only numbers, do not type "version"<BR>
 <BR>
-4. Click "Release Version"<BR>
+3. Click "Release Version"<BR>
 <BR>
