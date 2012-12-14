@@ -27,9 +27,17 @@ Modify All Release Versions<BR>
 <b>To Change the Date of a Version</b><BR>
 1. Choose your projects (see above)<BR>
 <BR>
-2. Select your version in the bottom fix version box (the top one is not relevant) type only numbers, do not type "version"<BR>
+2. Select your version in the middle fix version box (the top one is not relevant) type only numbers, do not type "version"<BR>
 <BR>
 3. Select your new date.<BR>
 <BR>
 4. Click Change date<BR>
+<BR>
+
+<b>To Release a Version</b><BR>
+1. Choose your projects (see above)<BR>
+<BR>
+2. Select your version in the bottom fix version box (the top two are not relevant) type only numbers, do not type "version"<BR>
+<BR>
+4. Click "Release Version"<BR>
 <BR>
