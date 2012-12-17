@@ -11,15 +11,13 @@ var MessageHandler = function () {
 		chrome.extension.sendMessage(params);
 	};
 	self.writeEverything = function(response) {
-		console.log('writing everything');
 		self.fixVersion = response.fixVersion;
 		self.date = (response.day + "/" + response.month + "/" + response.year);
 		setTimeout(self.butSeriouslyWriteEverything, 500);
 		self.description = response.description;
 	}
 	self.butSeriouslyWriteEverything = function(){
-		console.log('writing everything for realz');
-		$('input[type="text"][name="name"][value=""]').val("Version " + fixVersion);
+		$('input[type="text"][name="name"][value=""]').val("Version " + self.fixVersion);
 		$('input[type="text"][name="description"]').val(self.description);
 		$("#project-config-version-release-date-field").val(self.date);
 		$('input[class="aui-button"][value="Add"]').trigger('click');
