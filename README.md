@@ -3,6 +3,9 @@ MARV<BR>
 <BR>
 Modify All Release Versions<BR>
 <BR>
+<b>To Install: Download the .crx file, go to chrome://extensions/ and drag the file onto that page in chrome. It will install automatically</b>
+<BR>
+<BR>
 <b>General Information</b><BR>
 1. If you already have the tabs open it will cycle through them in the background and you can work on other things. It should take 25-30 seconds<BR>
 2. If you do not have the tabs open it will open them and focus on them. You can not work on other things. It should take 30-45 seconds<BR>
