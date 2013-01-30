@@ -3,6 +3,7 @@ var MessageHandler = function () {
 	this.fixVersion = null;
 	this.date = null;
 	self.description;
+	self.count = 0;
 	self.none=function(){};
 
 
@@ -21,7 +22,33 @@ var MessageHandler = function () {
 		$('input[type="text"][name="description"]').val(self.description);
 		$("#project-config-version-release-date-field").val(self.date);
 		$('input[class="aui-button"][value="Add"]').trigger('click');
-		chrome.extension.sendMessage({});
+		setTimeout(self.verifyWritten, 500);
+
+	}
+	self.verifyWritten = function() {
+		//verify that it has been written (If not found then send alert)
+		var found = 0;
+		$('.project-config-version-name').each(function(){
+			if (this.textContent == ("Version " + self.fixVersion)) {
+				found = 1;
+				chrome.extension.sendMessage({});
+			}
+					
+		});
+		if (found == 0){
+			if (self.count>0) {
+				var alertMsg = "Version may not have been written to ";
+				alertMsg = alertMsg + window.location;
+				window.alert(alertMsg);
+				chrome.extension.sendMessage({});
+			}
+			else {
+				self.count++;
+				setTimeout(self.butSeriouslyWriteEverything, 500);
+			}
+				
+				
+		}
 	}
 	self.releaseEverything = function(response){
 		self.fixVersion = response.fixVersion;
@@ -73,6 +100,7 @@ var MessageHandler = function () {
 		});
 		$('input[class="aui-button"][value="Update"]').trigger('click');
 		chrome.extension.sendMessage({});
+
 		
 	}
 };
