@@ -78,7 +78,8 @@ var MessageHandler = function () {
 				setTimeout(self.clickSubmit, 500);
 			}
 		});
-		setTimeout(self.verifyReleased, 500);
+		//setTimeout(self.verifyReleased, 500);
+		chrome.extension.sendMessage({});
 	}
 	self.verifyReleased = function() {
 		//verify that it has been written (If not found then send alert)
