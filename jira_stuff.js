@@ -78,8 +78,33 @@ var MessageHandler = function () {
 				setTimeout(self.clickSubmit, 500);
 			}
 		});
-		chrome.extension.sendMessage({});
+		setTimeout(self.verifyReleased, 500);
 	}
+	self.verifyReleased = function() {
+		//verify that it has been written (If not found then send alert)
+		var found = 0;
+		$('.project-config-version-name').each(function(){
+			if (this.textContent == ("Version " + self.fixVersion)) {
+				if (this.parent.className.indexOf("released") > 0) {
+					found = 1;
+					chrome.extension.sendMessage({});
+				}				
+			}
+		});
+		if (found == 0){
+			if (self.count>0) {
+				var alertMsg = "Version may not have been released on ";
+				alertMsg = alertMsg + window.location;
+				window.alert(alertMsg);
+				chrome.extension.sendMessage({});
+			}
+			else {
+				self.count++;
+				setTimeout(self.butSeriouslyReleaseEverything, 500);
+			}	
+		}
+	}
+
 	self.clickSubmit = function(){
 		var sub = $(document).find("#project-config-version-release-form-submit");
 		sub.click();
@@ -99,9 +124,35 @@ var MessageHandler = function () {
 			if ($(this).val() != "") $(this).val(self.date);
 		});
 		$('input[class="aui-button"][value="Update"]').trigger('click');
-		chrome.extension.sendMessage({});
+		setTimeout(self.verifyChanged, 500);
+	}
+	self.verifyChanged = function() {
+		//verify that it has been written (If not found then send alert)
+		var found = 0;
+		$('.project-config-version-release-date').each(function(){
+			
+			var formattedDate = self.date.substring(0,7);
+			formattedDate = formattedDate + self.date.substring(9,11);
+			formattedDate = formattedDate.toLowerCase();
 
-		
+			var lowerCase = ($(this).text()).toLowerCase();
+			if (lowerCase.indexOf(formattedDate) >= 0){
+				found = 1;
+				chrome.extension.sendMessage({});	
+			}	
+		});
+		if (found == 0){
+			if (self.count>0) {
+				var alertMsg = "Date may not have been changed on ";
+				alertMsg = alertMsg + window.location;
+				window.alert(alertMsg);
+				chrome.extension.sendMessage({});
+			}
+			else {
+				self.count++;
+				setTimeout(self.butSeriouslyChangeEverything, 500);
+			}	
+		}
 	}
 };
 
