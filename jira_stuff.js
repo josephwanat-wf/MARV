@@ -81,7 +81,7 @@ var MessageHandler = function () {
 		//setTimeout(self.verifyReleased, 500);
 		chrome.extension.sendMessage({});
 	}
-	self.verifyReleased = function() {
+	/*self.verifyReleased = function() {
 		//verify that it has been written (If not found then send alert)
 		var found = 0;
 		$('.project-config-version-name').each(function(){
@@ -105,7 +105,7 @@ var MessageHandler = function () {
 			}	
 		}
 	}
-
+	*/
 	self.clickSubmit = function(){
 		var sub = $(document).find("#project-config-version-release-form-submit");
 		sub.click();
