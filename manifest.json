@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "WebFilings QA Jira Version Changer",
-	"version": "2.1",
+	"version": "3.0",
 	"description": "A Google Chrome browser extension that adds Jira Projects",
 	"background": {
 		"page": "background.html"
