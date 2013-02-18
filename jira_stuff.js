@@ -78,15 +78,15 @@ var MessageHandler = function () {
 				setTimeout(self.clickSubmit, 500);
 			}
 		});
-		//setTimeout(self.verifyReleased, 500);
-		chrome.extension.sendMessage({});
+		setTimeout(self.verifyReleased, 1000);
+		//chrome.extension.sendMessage({});
 	}
-	/*self.verifyReleased = function() {
+	self.verifyReleased = function() {
 		//verify that it has been written (If not found then send alert)
 		var found = 0;
 		$('.project-config-version-name').each(function(){
 			if (this.textContent == ("Version " + self.fixVersion)) {
-				if (this.parent.className.indexOf("released") > 0) {
+				if ($(this).parent().attr('class').indexOf("released") > 0) {
 					found = 1;
 					chrome.extension.sendMessage({});
 				}				
@@ -105,7 +105,7 @@ var MessageHandler = function () {
 			}	
 		}
 	}
-	*/
+	
 	self.clickSubmit = function(){
 		var sub = $(document).find("#project-config-version-release-form-submit");
 		sub.click();
