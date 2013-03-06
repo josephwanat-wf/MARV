@@ -35,6 +35,7 @@ function handleSubmitClicked() {
 			var FUN = $('#FUN').is(':checked');
 			var INF = $('#INF').is(':checked');
 			var RR = $('#RR').is(':checked');
+			var FETT = $('#FETT').is(':checked');
 			var description = "Maintenance Release";
 			var year = date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
 			var newMonth = date.charAt(5) + date.charAt(6);
@@ -78,7 +79,7 @@ function handleSubmitClicked() {
 				month = "DEC"
 			}
 			if(!$('#maintenance').is(':checked')) description = $('#description').val();
-			chrome.extension.getBackgroundPage().mgr.updateVariables(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, description);
+			chrome.extension.getBackgroundPage().mgr.updateVariables(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, description);
 		}
 		else alert("Please choose a version");
 	}
@@ -115,7 +116,8 @@ function handleSubmit2Clicked() {
 		var FUN = $('#FUN').is(':checked');
 		var INF = $('#INF').is(':checked');
 		var RR = $('#RR').is(':checked');
-		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR);	
+		var FETT = $('#FETT').is(':checked');
+		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT);	
 	}
 	else alert("Please choose a version");
 }
@@ -152,6 +154,7 @@ function handleSubmit3Clicked() {
 			var FUN = $('#FUN').is(':checked');
 			var INF = $('#INF').is(':checked');
 			var RR = $('#RR').is(':checked');
+			var FETT = $('#FETT').is(':checked');
 			var year = date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
@@ -192,7 +195,7 @@ function handleSubmit3Clicked() {
 			else if (newMonth == 12){
 				month = "DEC"
 			}
-			chrome.extension.getBackgroundPage().mgr.updateVariables3(fixVersion3, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR);
+			chrome.extension.getBackgroundPage().mgr.updateVariables3(fixVersion3, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT);
 		}
 		else alert("Please choose a version");
 	}
@@ -251,6 +254,7 @@ function handleHideProjClicked(){
 	$('#tFUN').attr('class', 'hidden');
 	$('#tINF').attr('class', 'hidden');
 	$('#tRR').attr('class', 'hidden');
+	$('#tFETT').attr('class', 'hidden');
 	$('#select').attr('class', 'hidden');
 	$('#deselect').attr('class', 'hidden');
 }
@@ -283,6 +287,7 @@ function handleShowProjClicked(){
 	$('#tFUN').attr('class', 'shown');
 	$('#tINF').attr('class', 'shown');
 	$('#tRR').attr('class', 'shown');
+	$('#tFETT').attr('class', 'shown');
 	$('#select').attr('class', 'shown');
 	$('#deselect').attr('class', 'shown');
 }
