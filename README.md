@@ -4,7 +4,7 @@ MARV<BR>
 Modify All Release Versions<BR>
 
 <b>To Install: </b><BR>
-1. Download the packaged .crx file (this can be done by clicking on the file and then clicking 'RAW' in the top right).<BR>
+1. Download the packaged file (.crx)<BR>
 2. Go to chrome://extensions/ and drag the file onto this window. Google will take care of the rest<BR>
 <BR>
 <b>General Information</b><BR>
