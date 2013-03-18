@@ -31,7 +31,7 @@ var VersionChanger = function () {
 		);
 		notification.show();
 	};	
-	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, description) {
+	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX description) {
 		console.log(fixVersion);
 		this.month = month;
 		this.day = day;
@@ -39,21 +39,21 @@ var VersionChanger = function () {
 		this.fixVersion = fixVersion;
 		this.purpose = 1;
 		self.description = description;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX);
 		self.nextProject();
 
 	};	
-	self.updateVariables2 = function(fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT){
+	self.updateVariables2 = function(fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX){
 		this.fixVersion = fixVersion;
 		self.purpose = 2;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX);
 		self.nextProject();
 	};
-	self.updateVariables3 = function(fixVersion, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT){
+	self.updateVariables3 = function(fixVersion, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX){
 		this.fixVersion = fixVersion;
 		self.purpose = 3;
 		self.date = day + '/' + month + '/' + year;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX);
 		self.nextProject();
 	};
 	//Used for testing
@@ -123,7 +123,7 @@ var VersionChanger = function () {
 	this.none = function(request, sender, sendResponse) {
 		return {'action': 'none'}
 	};
-	self.updateProjects = function(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT){
+	self.updateProjects = function(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX){
 		if (AD == true) {
 			self.checked[self.length] = "AD";
 			self.length++;
@@ -236,6 +236,10 @@ var VersionChanger = function () {
 		}
 		if (FETT== true) {
 			self.checked[self.length] = "FETT";
+			self.length++;
+		}
+		if (USX== true) {
+			self.checked[self.length] = "USX";
 			self.length++;
 		}
 	};
