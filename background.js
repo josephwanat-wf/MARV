@@ -31,7 +31,7 @@ var VersionChanger = function () {
 		);
 		notification.show();
 	};	
-	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX description) {
+	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX, description) {
 		console.log(fixVersion);
 		this.month = month;
 		this.day = day;

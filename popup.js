@@ -292,7 +292,7 @@ function handleShowProjClicked(){
 	$('#tINF').attr('class', 'shown');
 	$('#tRR').attr('class', 'shown');
 	$('#tFETT').attr('class', 'shown');
-	$('#tFETT').attr('class', 'shown');
+	$('#tUSX').attr('class', 'shown');
 	$('#select').attr('class', 'shown');
 	$('#deselect').attr('class', 'shown');
 }
