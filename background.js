@@ -242,11 +242,11 @@ var VersionChanger = function () {
 			self.checked[self.length] = "CRN";
 			self.length++;
 		}
-		if (EPT= true) {
+		if (EPT== true) {
 			self.checked[self.length] = "EPT";
 			self.length++;
 		}
-		if (FF= true) {
+		if (FF== true) {
 			self.checked[self.length] = "FF";
 			self.length++;
 		}
