@@ -118,7 +118,7 @@ function handleSubmit2Clicked() {
 		var INF = $('#INF').is(':checked');
 		var RR = $('#RR').is(':checked');
 		var FETT = $('#FETT').is(':checked');
-		var USX = $('#USK').is(':checked');
+		var USX = $('#USX').is(':checked');
 		chrome.extension.getBackgroundPage().mgr.updateVariables2(fixVersion2, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, USX);	
 	}
 	else alert("Please choose a version");
@@ -157,7 +157,7 @@ function handleSubmit3Clicked() {
 			var INF = $('#INF').is(':checked');
 			var RR = $('#RR').is(':checked');
 			var FETT = $('#FETT').is(':checked');
-			var USX = $('#USK').is(':checked');
+			var USX = $('#USX').is(':checked');
 			var year = date.charAt(0) + date.charAt(1) + date.charAt(2) + date.charAt(3);
 			var newMonth = date.charAt(5) + date.charAt(6);
 			var day = date.charAt(8) + date.charAt(9);
