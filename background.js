@@ -31,7 +31,7 @@ var VersionChanger = function () {
 		);
 		notification.show();
 	};	
-	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT, description) {
+	this.updateVariables = function(month, day, year, fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR, description) {
 		console.log(fixVersion);
 		this.month = month;
 		this.day = day;
@@ -39,21 +39,21 @@ var VersionChanger = function () {
 		this.fixVersion = fixVersion;
 		this.purpose = 1;
 		self.description = description;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR);
 		self.nextProject();
 
 	};	
-	self.updateVariables2 = function(fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT){
+	self.updateVariables2 = function(fixVersion, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR){
 		this.fixVersion = fixVersion;
 		self.purpose = 2;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR);
 		self.nextProject();
 	};
-	self.updateVariables3 = function(fixVersion, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT){
+	self.updateVariables3 = function(fixVersion, year, month, day, AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR){
 		this.fixVersion = fixVersion;
 		self.purpose = 3;
 		self.date = day + '/' + month + '/' + year;
-		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT);
+		self.updateProjects(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR);
 		self.nextProject();
 	};
 	//Used for testing
@@ -123,7 +123,7 @@ var VersionChanger = function () {
 	this.none = function(request, sender, sendResponse) {
 		return {'action': 'none'}
 	};
-	self.updateProjects = function(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, BUS, FUN, INF, RR, FETT, UXT){
+	self.updateProjects = function(AD, ADMIN, AR, SKY, CERT, DI, DR, DS, FAP, FT, FUI, IAPI, PRES, SIXTEEN, SSC, SHEET, TRA, XBRLSEC, XL, XS, XW, HC, LOG, BOOKS, FUN, INF, RR, FETT, UXT, CRN, EPT, FF, HVR){
 		if (AD == true) {
 			self.checked[self.length] = "AD";
 			self.length++;
@@ -218,10 +218,6 @@ var VersionChanger = function () {
 			self.checked[self.length] = "BOOKS";
 			self.length++;
 		}
-		if (BUS == true) {
-			self.checked[self.length] = "BUS";
-			self.length++;
-		}
 		if (FUN == true) {
 			self.checked[self.length] = "FUN";
 			self.length++;
@@ -240,6 +236,22 @@ var VersionChanger = function () {
 		}
 		if (UXT== true) {
 			self.checked[self.length] = "UXT";
+			self.length++;
+		}
+		if (CRN== true) {
+			self.checked[self.length] = "CRN";
+			self.length++;
+		}
+		if (EPT= true) {
+			self.checked[self.length] = "EPT";
+			self.length++;
+		}
+		if (FF= true) {
+			self.checked[self.length] = "FF";
+			self.length++;
+		}
+		if (HVR== true) {
+			self.checked[self.length] = "HVR";
 			self.length++;
 		}
 	};
