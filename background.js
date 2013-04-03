@@ -6,12 +6,15 @@ var VersionChanger = function () {
 	this.fixVersion = null;
 	this.next_page_action = 'none';
 	this.next_message_handler = 'none';
+	self.hasWindow = false;
 	this.next_URL = "";
 	this.purpose = 0;
 	self.current = 0;
 	self.length = 0;
+	self.tabID = 100;
 	self.checked = new Array();
 	self.description = "Maintenance Release";
+	self.windowID = 0;
 	self.date = null;
 	this.messageListener = function(request, sender, sendResponse) {
 		if (request.error) {
@@ -103,7 +106,17 @@ var VersionChanger = function () {
 					{'url': url}
 			)
 		} 
-		else chrome.tabs.create({'url': url})
+		else if (self.hasWindow == false) {
+			chrome.windows.create({'url': url, 'width': 1, 'height': 1, 'top': 0, 'left': 0, 'focused': false}, function(windows){
+				self.windowID=windows.id;
+
+			});
+			self.hasWindow = true;
+		}
+		else {
+			console.log('ID' + self.windowID);
+			chrome.tabs.create({'url': url, 'windowId': self.windowID, 'active': false})
+		}
 	};
 	this.writeEverything = function(){
 		console.log('writingEverything');
